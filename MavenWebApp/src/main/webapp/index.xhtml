@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+  xmlns:h="http://java.sun.com/jsf/html"  
+  xmlns:f="http://java.sun.com/jsf/core"  
+  xmlns:rich="http://richfaces.org/rich"
+  xmlns:a4j="http://richfaces.org/a4j"
+  xmlns:ui="http://java.sun.com/jsf/facelets">  
+  
+<ui:composition template="template.xhtml">  
+  
+    <ui:define name="content">  
+
+      	<h:form>  
+                             
+    		<h:panelGrid columns="5" cellpadding="5">  
+        		<h:outputLabel for="name" value="Name:" style="font-weight:bold"/>  
+          
+        		<h:inputText id="name" value="#{personMB.firstname}">
+        			<rich:validator/>
+        		</h:inputText>  
+        		<rich:message for="name" ajaxRendered="true" />
+        		
+			  	<a4j:status>
+			        <f:facet name="start">
+			            <h:graphicImage value="/images/ai.gif" alt="ai" />
+			        </f:facet>
+			    </a4j:status>
+     
+        		<h:outputText value="#{personMB.firstname}" id="display" />  
+    		</h:panelGrid>  
+      
+      		<a4j:commandButton value="Submit" render="display"/>  
+      		
+	</h:form>  
+      
+    </ui:define>  
+</ui:composition> 
+
+</html>
